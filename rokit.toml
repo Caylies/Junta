@@ -1,0 +1,4 @@
+[tools]
+StyLua = "JohnnyMorganz/StyLua@2.3.1"
+selene = "Kampfkarren/selene@0.30.0"
+kaledis = "orpos/kaledis@3.0.2"

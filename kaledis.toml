@@ -1,0 +1,12 @@
+"$schema" = "./kaledis.schema.json"
+
+[project]
+name = "Junta"
+love_path = "C:/Program Files/LOVE"
+src_path="src"
+detect_modules=true
+
+[window]
+title = "Friday Night Funkin'"
+
+[audio]

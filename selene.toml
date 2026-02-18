@@ -1,0 +1,5 @@
+std = "roblox+typesolver"
+
+[lints]
+incorrect_standard_library_use = "allow"
+undefined_variable = "allow"

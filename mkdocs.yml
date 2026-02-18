@@ -1,0 +1,53 @@
+site_name: Junta
+repo_url: https://github.com/Caylies/Junta
+repo_name: Caylies/Junta
+
+theme:
+  name: material
+  palette:
+    - scheme: slate
+      primary: blue
+      accent: deep blue
+      toggle:
+        icon: material/weather-sunny
+        name: Dark mode
+
+    - scheme: default
+      primary: blue
+      accent: deep blue
+      toggle:
+        icon: material/weather-night
+        name: Light mode
+
+  highlightjs: false
+
+  features:
+    - content.code.annotate
+    - content.tooltips
+    - navigation.instant
+    - navigation.path
+    - navigation.indexes
+    - content.tabs.link
+    - content.code.select
+    - content.code.copy
+
+  icon:
+    repo: fontawesome/brands/github
+
+nav:
+  - Home: index.md
+
+markdown_extensions:
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - abbr
+  - attr_list
+  - admonition
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+
+plugins:
+  - search
