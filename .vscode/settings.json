@@ -2,8 +2,7 @@
     "luau-lsp.types.definitionFiles": [
         "~/.kaledis/globals.d.luau"
     ],
-    "luau-lsp.platform.type": "roblox",
+    "luau-lsp.platform.type": "standard",
     "luau-lsp.fflags.enableNewSolver": true,
     "luau-lsp.sourcemap.enabled": false,
     "stylua.targetReleaseVersion": "latest"
-}
