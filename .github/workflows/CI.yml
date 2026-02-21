@@ -6,7 +6,7 @@ on:
 
 jobs:
   Luau:
-    name: Check formatting
+    name: Luau formatting
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -19,7 +19,7 @@ jobs:
       - name: Run Selene
         run: selene src
   Python:
-    name: Check formatting
+    name: Python formatting
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
