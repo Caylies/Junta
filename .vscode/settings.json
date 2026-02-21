@@ -3,5 +3,6 @@
         "~/.kaledis/globals.d.luau"
     ],
     "luau-lsp.platform.type": "roblox",
+    "luau-lsp.fflags.enableNewSolver": true,
     "luau-lsp.sourcemap.enabled": false
 }
