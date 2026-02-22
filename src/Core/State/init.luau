@@ -7,6 +7,58 @@
 
 -------------------------------------------------------------------------------------------------------------------------
 
+--[[
+    This has the BaseState class which other states build on
+--]]
+local BaseStateModule = require("@self/BaseState")
+local BaseState = BaseStateModule.new()
+
+--[[
+    All the states are preloaded and stored in this table
+--]]
+local States = {} :: { [string]: BaseStateModule.BaseState }
+
+local CurrentState: BaseStateModule.BaseState = BaseState
+
+for _, State in next, love.filesystem.getDirectoryItems("Game/States") do
+	local Path = string.format("Game.States.%s", State)
+	States[State] = require(Path) :: BaseStateModule.BaseState
+end
+
+--[[
+    Switches the current state and loads a new one.
+    
+    @param Name -- The name of the new state.
+--]]
+local function SetState(Name: string, ...)
+	if CurrentState then
+		CurrentState._Events.Destroying()
+		table.clear(CurrentState)
+		CurrentState = BaseState
+	end
+
+	CurrentState = table.clone(States[Name])
+	assert(CurrentState, "Current State is nil.")
+
+	CurrentState._Events.Preloading(...)
+	CurrentState._Events.Loading()
+	CurrentState._Events.Postloading()
+end
+
+--[[
+    Connecting the love functions to the CurrentState
+--]]
+function love.update(delta)
+	CurrentState:Call("Updating", delta)
+end
+
+function love.draw()
+	CurrentState:Call("Drawing")
+end
+
+SetState("Menu")
+
 return {
-	BaseState = require("@self/BaseState"),
+	BaseState = BaseState,
+	Switch = SetState,
 }

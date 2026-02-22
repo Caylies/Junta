@@ -11,3 +11,8 @@ venv
 # Love2D
 .build
 dist
+
+rokit.exe
+selene.exe
+stylua.exe
+kaledis.exe

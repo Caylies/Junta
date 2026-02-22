@@ -1,5 +1,11 @@
 --!strict
 
+--[[
+	Set up logging
+--]]
+local Logging = require("../../../Packages/Logging")
+local Logger = Logging.GetLogger("Core.State.BaseState")
+
 local BaseState = {}
 BaseState.__index = BaseState
 
@@ -20,6 +26,9 @@ local DEFAULT_EVENTS = {
 		return
 	end,
 	Destroying = function()
+		return
+	end,
+	Drawing = function()
 		return
 	end,
 }
@@ -80,6 +89,18 @@ end
 ]]
 function BaseState.Destroying(self: BaseState, Callback: () -> ()): ()
 	self._Events.Destroying = Callback
+end
+
+--[[
+	Calls a state function.
+	
+	@param Function -- The function to call.
+]]
+function BaseState.Call(self: BaseState, Function: keyof<typeof(DEFAULT_EVENTS)>): ()
+	if not self._Events[Function] then
+		Logger:Warn("This state doesn't have this function")
+	end
+	self._Events[Function]()
 end
 
 -------------------------------------------------------------------------------------------------------------------------
