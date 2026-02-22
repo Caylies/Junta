@@ -4,7 +4,7 @@
 	Set up logging
 --]]
 local Logging = require("../../../Packages/Logging")
-local Logger = Logging.GetLogger("StateLogger")
+local Logger = Logging.GetLogger("Core.State.BaseState")
 
 local BaseState = {}
 BaseState.__index = BaseState
