@@ -26,7 +26,9 @@ for _, State in next, love.filesystem.getDirectoryItems("Game/States") do
 end
 
 --[[
-    Sets up the state and gets everything done
+    Switches the current state and loads a new one.
+    
+    @param Name -- The name of the new state.
 --]]
 local function SetState(Name: string, ...)
 	if CurrentState then
