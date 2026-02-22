@@ -93,6 +93,8 @@ end
 
 --[[
 	Calls a state function.
+	
+	@param Function -- The function to call.
 ]]
 function BaseState.Call(self: BaseState, Function: keyof<typeof(DEFAULT_EVENTS)>): ()
 	if not self._Events[Function] then
